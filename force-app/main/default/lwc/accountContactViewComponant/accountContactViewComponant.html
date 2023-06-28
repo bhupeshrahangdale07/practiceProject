@@ -1,0 +1,53 @@
+<template>
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="12">
+    <lightning-card title="Search Accounts">
+        <div class="slds-m-horizontal_x-small">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-7">
+        <lightning-input label="Enter Account Name" type="text" onchange={onChangeHandler}></lightning-input>
+       </div>
+       <div class="slds-col slds-size_1-of-7">
+        <lightning-combobox 
+        label="Select Country" 
+        value={value}
+        placeholder="Select Country"
+        options={countries}
+        onchange={selectCountryHandler} 
+        ></lightning-combobox>
+       </div>
+       <div class="slds-col slds-size_3-of-7">
+        <div class="slds-m-bottom_medium">
+        <lightning-dual-listbox name="Industry"
+        label="Select Industries"
+        source-label="Available"
+        selected-label="Selected"
+        field-level-help="Select your preferred Industries"
+        options={options}
+        onchange={handleOnChange}
+        size="1"></lightning-dual-listbox>
+    </div>
+    </div>
+       <div class="slds-col slds-size_1-of-6">
+        <div class="slds-m-top_large">
+       <lightning-button title="Search" variant="brand" label="Search" icon-name="utility:search" onclick={searchHandler}></lightning-button>
+    </div>
+    </div>
+    </div>
+    <lightning-datatable
+    key-field="id"
+    data={visibleRecords}
+    columns={columns}
+    hide-checkbox-column="true"
+    show-row-number-column="true"
+    onrowaction={onRowActionHandler}>
+</lightning-datatable>
+
+    </div>
+    <div slot="footer" class="slds-var-m-vertical_medium">
+    <c-pagination-comp records={data} onupdate={onupdateHandler}></c-pagination-comp>
+    </div>
+    </lightning-card>
+</lightning-layout-item>
+</lightning-layout>
+</template>
