@@ -23,7 +23,7 @@ export default class AccountContactViewComponant extends NavigationMixin(Lightni
    
 
     InputAccountName;
-    new;
+    
     data;
     columns= columns;
     error;
